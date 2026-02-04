@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+</head>
+
+<body>
+
+    <!-- Example 1 -->
+    <h1>Change Text Using DOM</h1>
+    <h2 id="title">Old Heading</h2>
+    <button onclick="changeText()"> Click Here to change Text</button>
+
+    <!-- Example 2 -->
+    <h1> Change Style Color Using DOm</h1>
+    <h2 id="msg">Hello Sukanya</h2>
+    <button onclick="changecolor()">Click here to change text color</button>
+
+    <!-- Example 3 -->
+    <h1> Change image Using DOM</h1>
+    <img src="image/duck.jpg" alt="duck" id="3" width="400"><br>
+    <button onclick="changeimage()">Click here to change image</button>
+
+    <!-- Example 4 -->
+    <h1> Input From User</h1>
+    <input type="text" id="nameinput" placeholder="Enter Name">
+    <button onclick="showname()">Submit</button>
+    <h1 id="output"></h1>
+
+    <!-- Example 5 -->
+    <h1>Delete Line </h1>
+    <p id="deleteme">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad consequatur error eius explicabo? Rerum
+        quos laboriosam in, nihil fuga consequatur. Animi reprehenderit incidunt magni hic in dolor officia tenetur
+        rerum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus facere nostrum sequi molestias
+        nesciunt, corporis, facilis ipsum, tempora sapiente distinctio quas. Vitae eos, numquam sint obcaecati hic
+        reiciendis illo sunt!</p>
+    <button onclick="removepara()">Remove</button>
+
+
+    <!-- Example 6 -->
+    <p id="para">Change My font Size</p>
+    <button onclick="increase()">+</button>
+    <button onclick="decrease()">-</button>
+
+
+
+    <!-- Example 7 -->
+     <button onclick="toggleTheme">Click here for Dark Mode</button>
+     <h2>Welcome To DreamRide Park</h2>
+     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste unde neque labore, quia commodi earum quam? Mollitia, est saepe, ex esse repudiandae id natus doloribus quia, unde suscipit in ipsa.
+     Perferendis, qui quae. Nisi dignissimos rerum velit amet eius natus odio, sed necessitatibus tenetur hic maiores neque inventore minus omnis voluptatem sapiente ullam nihil alias debitis at fugiat sunt voluptate.</p>
+
+     <style>
+
+        body{
+            background-color: white;
+            color: black;
+
+        }
+        .dark-mode{
+            background-color: black;
+            color: white;
+        }
+        
+     </style>
+
+     <script>
+        const toggleTheme = () => document.body.classList.toggle("dark-mode");
+     </script>
+
+
+
+
+
+
+       <script>
+        let size = 16;
+
+        function increase(){
+            size ++;
+            document.getElementById("para").style.fontSize = size + "px";
+        }
+
+        
+        function decrease(){
+            size --;
+            document.getElementById("para").style.fontSize = size + "px";
+        }
+       </script>
+
+
+    <script>
+        function removepara() {
+            document.getElementById("deleteme").remove();
+        }
+    </script>
+
+    <script>
+        function showname() {
+            let name = document.getElementById("nameinput").value;
+            document.getElementById("output").innerHTML = "Thank You " + name;
+        }
+    </script>
+
+    <script>
+        function changeimage() {
+            document.getElementById("3").src = 'image/shinchan.jpg';
+        }
+    </script>
+
+
+
+    <script>
+        function changecolor() {
+            document.getElementById('msg').style.color = 'orange';
+        }
+    </script>
+
+    <script>
+        function changeText() {
+            document.getElementById('title').innerHTML = "New Heading";
+        }
+    </script>
+
+    <!-- interaction of HTML with JS -->
+
+
+
+</body>
+
+</html>
