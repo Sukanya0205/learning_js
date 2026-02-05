@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Function</title>
+    <style>
+        #clock {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: blue;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            font-size: 40px;
+
+
+        }
+
+        #head {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="head">Digital Clock</h1>
+    <h2 id="clock"> </h2>
+    <p id="msg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, atque nihil maxime magnam consequuntur
+        ut adipisci illum blanditiis quos earum corporis perferendis eveniet! Accusantium et sed quos magnam nobis quia.
+    </p>
+
+    <h1>Counter</h1>
+    <h3 id="count">0</h3>
+    <button onclick="startCounter()">Start</button>
+    <button onclick="stopCounter()">Stop</button>
+    <button type="reset" onclick="reset()">Reset</button>
+    <!-- counter -->
+    <script>
+        let count = 0;
+        let = counter = null;
+        function startCounter() {
+            if (counter === null) {
+                counter = setInterval(function () {
+                    count++;
+                    document.getElementById("count").innerHTML = count;
+                }, 1000);
+
+
+            }
+        }
+        function stopCounter() {
+            clearInterval(counter);
+            counter = null;
+        }
+
+        function reset() {
+          
+           clearInterval(counter);
+
+            counter= null;
+            count = 0;
+            document.getElementById("count").innerHTML = count;
+        }
+        
+
+    </script>
+
+
+
+    <script>
+        setTimeout(function () {
+            document.getElementById("msg").innerHTML = "Sukanya ";
+        }, 10000)
+    </script>
+
+<!-- clock -->
+    <script>
+        function showtime() {
+            let now = new Date();
+            let time = now.toLocaleTimeString();
+            document.getElementById("clock").innerHTML = time;
+            setInterval(showtime, 1000);
+
+        }
+        showtime();
+    </script>
+
+</body>
+
+</html>

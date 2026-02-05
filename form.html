@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Contact Us</title>
@@ -8,94 +9,192 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-dark">
 
-<div class="container p-5 mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 ">
+<body class="bg">
 
-            <div class="card shadow rounded-4">
-                <div class="card-body p-4">
+    <div class="container p-5 mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 ">
 
-                    <h2 class="text-center mb-4 fw-bold">Contact Us</h2>
+                <div class="card shadow rounded-4">
+                    <div class="card-body p-4">
 
-                    <form>
-                        <!-- Name -->
-                        <div class="mb-3">
-                            <label class="form-label">Name:</label>
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
+                        <h2 class="text-center mb-4 fw-bold">Contact Us</h2>
 
-                        <!-- Email -->
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="name@example.com">
-                        </div>
-
-                        <!-- Mobile Number -->
-                        <div class="mb-3">
-                            <label class="form-label">Mobile Number</label>
-                            <input type="tel" class="form-control" placeholder="Your Mobile Number">
-                        </div>
-
-                        <!-- Password -->
-                        <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" placeholder="Your Password">
-                        </div>
-
-                        <!-- Confirm Password -->
-                        <div class="mb-3">
-                            <label class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" placeholder="Confirm Password">
-                        </div>
-
-                        <!-- Message -->
-                        <div class="mb-3">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-control"  placeholder="Your Message"></textarea>
-                        </div>
-
-                        <!-- Gender -->
-                        <div class="mb-3">
-                            <label class="form-label d-block">Gender:</label>
-
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender">
-                                <label class="form-check-label">Male</label>
+                        <form onsubmit=" return validate()">
+                            <!-- Name -->
+                            <div class="mb-3">
+                                <label class="form-label">Name:</label>
+                                <input id="name" type="text" class="form-control" placeholder="Your Name">
+                                <span class="text-danger" id="nameerror"></span>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender">
-                                <label class="form-check-label">Female</label>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input id="email" type="email" class="form-control" placeholder="name@example.com">
+                                <span class="text-danger" id="emailerror"></span>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender">
-                                <label class="form-check-label">Other</label>
+
+                            <!-- Mobile Number -->
+                            <div class="mb-3">
+                                <label class="form-label">Mobile Number</label>
+                                <input id="mobile" type="tel" class="form-control" placeholder="Your Mobile Number">
+                                <span id="mobileerror" class="text-danger"></span>
                             </div>
-                        </div>
 
-                        <!-- Terms -->
-                        <div class="mb-4 form-check">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label">
-                                I agree to the terms & condition
-                            </label>
-                        </div>
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input id="password" type="password" class="form-control" placeholder="Your Password">
+                                <span id="passworderror" class="text-danger"></span>
+                            </div>
 
-                        <!-- Submit -->
-                        <div class="">
-                            <button type="submit" class="btn btn-success btn-sm">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
+                            <!-- Confirm Password -->
+                            <div class="mb-3">
+                                <label class="form-label">Confirm Password</label>
+                                <input id="confirmpassword" type="password" class="form-control"
+                                    placeholder="Confirm Password">
+                                <span id="confirmpassworderror" class="text-danger"></span>
+                            </div>
 
+                            <!-- Message -->
+                            <div class="mb-3">
+                                <label class="form-label">Message</label>
+                                <textarea id="message" class="form-control" placeholder="Your Message"></textarea>
+                                <span id="messageerror" class="text-danger"></span>
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="mb-3">
+                                <label class="form-label d-block">Gender:</label>
+
+                                <div class="form-check-inline">
+                                    <input id="male" class="form-check-input" type="radio" name="gender">
+                                    <label class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="female" class="form-check-input" type="radio" name="gender">
+                                    <label class="form-check-label">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="other" class="form-check-input" type="radio" name="gender">
+                                    <label class="form-check-label">Other</label>
+                                </div>
+                                <span class="text-danger" id="gendererror"></span>
+                            </div>
+
+                            <!-- Terms -->
+                            <div class="mb-4 form-check">
+                                <input id="checkbox" type="checkbox" class="form-check-input">
+                                <label class="form-check-label">
+                                    I agree to the terms & condition
+                                </label>
+                                <span id="checkboxerror" class="text-danger"></span>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="">
+                                <button type="submit" class="btn btn-success btn-sm">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
+
+    <script src="">
+        // get form values
+        cons.name = document.getElementById("name").value.trim();
+        cons.name = document.getElementById("email").value.trim();
+        cons.name = document.getElementById("mobile").value.trim();
+        cons.name = document.getElementById("password").value.trim();
+        cons.name = document.getElementById("confirmpassword").value.trim();
+        cons.name = document.getElementById("message").value.trim();
+        cons.name = document.getElementById("checkbox").checked;
+        cons.name = document.getElementById("input[name = gender]:checked");
+
+        // error spans
+        const nameerror = document.getElementById("nameerror");
+        const emailerror = document.getElementById("emailerror");
+        const mobileerror = document.getElementById("mobileerror");
+        const passworderror = document.getElementById("passworderror");
+        const confirmpassworderror = document.getElementById("confirmpassworderror");
+        const messageerror = document.getElementById("messageerror");
+        const gendererror = document.getElementById("gendererror");
+        const checkboxerror = document.getElementById("checkboxerror");
+
+        // clear previous error message
+
+        nameerror.textContent = "";
+        emailerror.textContent = "";
+        mobileerror.textContent = "";
+        passworderror.textContent = "";
+        confirmpassworderror.textContent = "";
+        messageerror.textContent = "";
+        gendererror.textContent = "";
+        checkboxerror.textContent = "";
+
+        let isvalid = true;
+
+        // validate fields
+
+        // name
+
+        if (name === "") {
+            nameerror.textContent = "Please Enter your Name.";
+            isvalid = false;
+        }
+        else if (name.length < 3) {
+            nameerror.textContent = "Please Enter at least 3 character.";
+            isvalid = false;
+        }
+
+        // email
+
+        if (email === "") {
+            emailerror.textContent = "please enter your email"
+            isvalid = false;
+        }
+        else if ('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$') {
+            emailerror.textContent = "Please Enter a valid email address.";
+            isvalid = false;
+        }
+
+        //mobile
+
+        if (mobile === "") {
+            mobileerror.textContent = "please enter your mobile Number"
+            isvalid = false;
+        }
+        else if (^ (\d{ 3 } -|\(\d{ 3 } \) \s) \d{ 3 } -\d{ 4 } $.test(mobile)) {
+            emailerror.textContent = "Please Enter a valid  10 digit mobile number.";
+            isvalid = false;
+        }
+
+        //password validation (at least 6 chars, 1 number , 1 special char)
+        const passwordPattern = (?=^.{ 8, }$)((?=.*\d)| (?=.*\W +)) (? ![.\n])(?=.* [A - Z])(?=.* [a - z]).* $"
+        if
+
+
+        
+
+
+// show bootstrap success alert if valid
+if (isvalid) {
+                alert("Form Submitted Succesfuly")
+            }
+
+
+        return isvalid; //prevent form submission if invalid
+
+    </script>
 
 </body>
+
 </html>
